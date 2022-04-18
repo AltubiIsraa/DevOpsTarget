@@ -8,7 +8,10 @@ pipeline{
 }
               stage('Deliver'){
                 steps{
-                    sh 'scp ./sample1 vagrant@10.10.50.3'
+			withCredentials([sshUserPrivatekey(credentialsId: "vagrant-private-key", keyFileVariable: 'keyfile')]){
+                    sh 'scp -i {keyfile}./sample1 vagrant@10.10.50.3'
+
+			}
                }
             }
         }
