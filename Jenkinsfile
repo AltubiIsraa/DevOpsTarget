@@ -9,7 +9,8 @@ pipeline{
               stage('Deliver'){
                 steps{
 			withCredentials([sshUserPrivateKey(credentialsId: "vagrant-private-key", keyFileVariable: 'keyfile')]) {
-				sh 'scp -o "StrictHostKeyChecking=no" -i ${keyfile} ./sample1 vagrant@10.10.50.3:'
+				'andible-playbook -i hosts.ini playbook.yml'
+				//sh 'scp -o "StrictHostKeyChecking=no" -i ${keyfile} ./sample1 vagrant@10.10.50.3:'
 			}
                }
             }
