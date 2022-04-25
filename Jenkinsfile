@@ -3,12 +3,13 @@ pipeline{
 
 		parameters {
   		 choice choices: ['qa', 'production', 'staging'], description: 'Select environment for deployment', name: 'DEPLOY_TO'
+ 		 buildSelector defaultSelector: upstream(), name: 'BUILD_SELECTOR'
 		}
 
            stages{
 		  stage('Copy artifact'){
                 steps{
-			 copyArtifacts filter: 'sample1', fingerprintArtifacts: true, projectName: 'sample', selector: lastSuccessful()
+			 copyArtifacts filter: 'sample1', fingerprintArtifacts: true, projectName: 'sample', selector: BUILD_SELECTOR
                }
 }
              stage('Deliver'){
