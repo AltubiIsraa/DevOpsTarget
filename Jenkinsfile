@@ -2,7 +2,7 @@ pipeline{
         agent any
 
 		parameters {
-  		 choice choices: ['qa', 'production', 'staging'], description: 'Select environment for deployment', name: 'DEPLOY_TO'
+  		 choice choices: ['qa', 'production'], description: 'Select environment for deployment', name: 'DEPLOY_TO'
  		 buildSelector defaultSelector: upstream(), name: 'BUILD_SELECTOR'
 		}
 
