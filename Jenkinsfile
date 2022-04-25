@@ -6,20 +6,20 @@ pipeline{
  		 buildSelector defaultSelector: upstream(), name: 'BUILD_SELECTOR'
 		}
 
-//            stages{
-// 		  stage('Copy artifact'){
-//                 steps{
-// 			 copyArtifacts filter: 'sample1', fingerprintArtifacts: true, projectName: 'sample', selector: BUILD_SELECTOR
-//                }
-// }
+           stages{
+		  stage('Copy artifact'){
+                steps{
+			 copyArtifacts filter: 'sample1', fingerprintArtifacts: true, projectName: 'sample', selector: BUILD_SELECTOR
+               }
+}
 		   
-		   stages {
-   			 stage('Copy artifact') {
-    			  steps {
-				copyArtifacts filter: 'sample1', fingerprintArtifacts: true,
-        			projectName: "sample-multibranch/${params.upstreamJobName}", selector: upstream()
-			      }
-  				  }
+// 		   stages {
+//    			 stage('Copy artifact') {
+//     			  steps {
+// 				copyArtifacts filter: 'sample1', fingerprintArtifacts: true,
+//         			projectName: "sample-multibranch/${params.upstreamJobName}", selector: upstream()
+// 			      }
+//   				  }
 			   
              stage('Deliver'){
               steps{
