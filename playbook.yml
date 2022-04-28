@@ -8,7 +8,7 @@
         mode: "0777"
     - name: copy artifact
       ansible.builtin.copy:
-        src: sample
+        src: sample1
         dest: /home/vagrant/sample
         mode: "0777"
     - name: create simple service template
