@@ -19,4 +19,4 @@
     - name: run samole service
       ansible.builtin.systemd:
         state: started
-        name: httpd
+        name: sample
