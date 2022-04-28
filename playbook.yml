@@ -18,5 +18,5 @@
         dest: /etc/systemd/system/sample.service
     - name: run samole service
       ansible.builtin.systemd:
-        stste: started
+        state: started
         name: httpd
