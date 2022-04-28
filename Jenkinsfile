@@ -1,4 +1,3 @@
-
 pipeline {
   agent any
   
@@ -10,15 +9,15 @@ pipeline {
           description: 'The name of the job the triggering upstream build'
     )
 }
-			
+
+
   stages {
-   // stage('Copy artifact') {
-     // steps {
-       // copyArtifacts filter: 'sample', fingerprintArtifacts: true,
-         // projectName: "sample-multibranch/${params.upstreamJobName}", selector: lastSuccessful()
-      //}
-    //}
-			   
+    stage('Copy artifact') {
+      steps {
+        copyArtifacts filter: 'sample', fingerprintArtifacts: true,
+          projectName: "sample-multibranch/${params.upstreamJobName}", selector: lastSuccessful()
+      }
+    }
     stage('Deliver') {
       steps {
           sshagent(['vagrant-private-key']) {
