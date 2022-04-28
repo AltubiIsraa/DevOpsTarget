@@ -1,7 +1,5 @@
 - hosts: target
   tasks:
-- hosts: target
-  tasks:
     - name: create vagrant folder
       become: true
       file:
